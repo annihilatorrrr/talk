@@ -601,7 +601,9 @@ const App = Vue.createApp({
 	},
 }).mount("#app");
 
-// Register service worker for PWA functionality
+// Unregister any previously installed service worker (caching removed)
 if ("serviceWorker" in navigator) {
-	navigator.serviceWorker.register("/sw.js");
+	navigator.serviceWorker.getRegistrations().then((registrations) => {
+		registrations.forEach((registration) => registration.unregister());
+	});
 }
