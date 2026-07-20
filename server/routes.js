@@ -5,6 +5,7 @@ const router = require("express").Router();
 const STATIC_VIEWS = {
 	privacy: "Privacy policy",
 	terms: "Terms of service",
+	faq: "FAQ",
 };
 
 // Route: Home page
