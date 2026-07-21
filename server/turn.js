@@ -14,7 +14,14 @@ const crypto = require("crypto");
 const config = require("./config");
 
 // Public STUN servers used for candidate discovery (cheap, no relay).
-const STUN_SERVERS = [{ urls: "stun:stun.l.google.com:19302" }, { urls: "stun:stun1.l.google.com:19302" }];
+const STUN_SERVERS = [
+	{ urls: "stun:stun.l.google.com:19302" },
+	{ urls: "stun:stun1.l.google.com:19302" },
+	{ urls: "stun:stun2.l.google.com:19302" },
+	{ urls: "stun:stun3.l.google.com:19302" },
+	{ urls: "stun:stun4.l.google.com:19302" },
+	{ urls: "stun:stun.relay.metered.ca:80" },
+];
 
 /**
  * Generate a time-limited TURN credential pair for the given shared secret.
