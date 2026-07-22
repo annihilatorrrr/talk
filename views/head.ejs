@@ -32,4 +32,9 @@
   <% } %>
 
   <title>Ahey / <%= title %></title>
+
+  <% if(process.env.NODE_ENV === "production") { %>
+  <!-- A privacy first web analytics-->
+  <script async src="https://cabin.ahey.net/hello.js"></script>
+  <% } %>
 </head>
