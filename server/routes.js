@@ -1,4 +1,4 @@
-const { isValidRoomName, randomRoomName, randomPublicRoomName, unusedRoomName } = require("./utils");
+const { isValidRoomName, isPublicRoomName, randomRoomName, randomPublicRoomName, unusedRoomName } = require("./utils");
 const { getPublicRooms, isRoomLive } = require("./signalling-server");
 
 const router = require("express").Router();
@@ -50,7 +50,7 @@ router.get("/:room", (req, res) => {
 		return res.status(400).render("invalid", { page: "invalid-room", title: "Invalid room" });
 	}
 
-	res.render("room", { page: "room", title: room });
+	res.render("room", { page: "room", title: room, isPublic: isPublicRoomName(room) });
 });
 
 // Route: Catch-all for 404 errors
